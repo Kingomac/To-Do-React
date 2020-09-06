@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { makeStyles, Theme, createStyles, Container } from "@material-ui/core";
+import CustomLayout from "./components/CustomLayout";
+import { Tasks, Home } from "./views/views";
+import { Database } from "./database";
 
-function App() {
+export const db = new Database();
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      flexGrow: 1,
+    },
+  })
+);
+
+export default function App() {
+  const classes = useStyles();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className={classes.root}>
+        <CustomLayout />
+        <Container maxWidth="sm">
+          <Switch>
+            <Route path="/c/:id" component={Tasks} />
+            <Route path="/" component={Home} />
+          </Switch>
+        </Container>
+      </div>
+    </Router>
   );
 }
-
-export default App;
