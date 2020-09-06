@@ -1,6 +1,6 @@
 # To-Do List
 
-This is an interative To-Do list made with [React](https://reactjs.org/) and [Material UI](https://material-ui.com/)
+This is an interative To-Do list made with [React](https://reactjs.org/), [Material UI](https://material-ui.com/) and [Dexie.js](https://dexie.org/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
